@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user-service.service';
+import { User } from '../../models/user';
 
 @Component({
   selector: 'app-login-component',
@@ -9,9 +10,7 @@ import { UserService } from 'src/app/services/user-service.service';
 export class LoginComponentComponent implements OnInit {
 
   login: string;
-  password: any;
-
-  user: Array<{login: string, password: any}> = [];
+  password: string;
 
   constructor(
     private userService: UserService) { }
@@ -32,12 +31,13 @@ export class LoginComponentComponent implements OnInit {
     if (targetClassName === 'password') {
       this.password = $event.target.value;
     }
-    console.log(this.user);
   }
 
   save() {
-    this.userService.setUser(this.login);
+    // this.userService.setUser(this.login);
 
+    const user: User = ({ login: this.login, password: this.password });
+    this.userService.setUser(user);
   }
 
 

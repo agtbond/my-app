@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user-service.service';
+import { User } from '../../models/user';
 
 @Component({
   selector: 'app-dashboard-component',
@@ -8,16 +9,16 @@ import { UserService } from '../../services/user-service.service';
 })
 export class DashboardComponentComponent implements OnInit {
 
-  user: Array<{login: string, password: any}> = [];
+  usersList: Array<User> = [];
 
   constructor(private userService: UserService) { }
 
   ngOnInit() {
 
-    this.userService.user$.subscribe((user) => {
-      //this.user = user;
-      console.log('test');
-      console.log(user);
+    this.userService.userObs.subscribe((usersList: Array<User>) => {
+      this.usersList = usersList;
+
+      console.log(this.usersList);
     });
   }
 
