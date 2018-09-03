@@ -5,13 +5,13 @@ import { Subject } from '../../../node_modules/rxjs';
   providedIn: 'root'
 })
 export class UserService {
-  login$: Subject<string> = new Subject();
+  user$: Subject<void> = new Subject<void>;
 
-  setUser(login: string): void {
-    this.login$.next(login);
+  setUser(user: string): void {
+    this.user$.next(user);
   }
 
   complete() {
-    this.login$.complete();
+    this.user$.complete();
   }
 }

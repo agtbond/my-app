@@ -8,14 +8,16 @@ import { UserService } from '../../services/user-service.service';
 })
 export class DashboardComponentComponent implements OnInit {
 
-  login: string;
+  user: Array<{login: string, password: any}> = [];
 
   constructor(private userService: UserService) { }
 
   ngOnInit() {
-    console.log(this.login);
-    this.userService.login$.subscribe(login => {
-      this.login = login;
+
+    this.userService.user$.subscribe((user) => {
+      //this.user = user;
+      console.log('test');
+      console.log(user);
     });
   }
 
