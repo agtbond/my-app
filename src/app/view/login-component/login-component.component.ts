@@ -13,8 +13,7 @@ export class LoginComponentComponent implements OnInit {
   password: string;
   form: FormGroup;
 
-  constructor(
-    private userService: UserService) { }
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
     this.form = new FormGroup({
@@ -22,19 +21,8 @@ export class LoginComponentComponent implements OnInit {
       password: new FormControl(null)
     });
   }
-
-  setUser($event) {
-    // const targetClassName = $event.target.className;
-    // if (targetClassName === 'login') {
-    //   this.login = $event.target.value;
-    // }
-    // if (targetClassName === 'password') {
-    //   this.password = $event.target.value;
-    // }
-  }
   save() {
     const user: User = ({ login: this.form.value.login, password: this.form.value.password });
     this.userService.setUser(user);
-    console.log(user);
   }
 }

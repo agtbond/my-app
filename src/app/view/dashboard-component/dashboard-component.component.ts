@@ -19,7 +19,7 @@ export class DashboardComponentComponent implements OnInit {
     this.userService.userObs.subscribe((usersList: Array<User>) => {
       this.usersList = usersList;
       this.loginView = this.usersList[0];
-      console.log(this.loginView);
+      console.log(usersList);
     });
   }
 

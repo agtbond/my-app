@@ -7,13 +7,15 @@ import { DashboardComponentComponent } from './view/dashboard-component/dashboar
 import { AppRoutingModule } from './app-routing.module';
 import { MenuComponent } from './view/menu/menu.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EditUsernameComponent } from './view/edit-username/edit-username.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponentComponent,
     DashboardComponentComponent,
-    MenuComponent
+    MenuComponent,
+    EditUsernameComponent
   ],
   imports: [
     BrowserModule,

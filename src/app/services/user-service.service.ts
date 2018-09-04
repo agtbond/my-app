@@ -18,8 +18,9 @@ export class UserService {
     const userObj = this.userObs.getValue();
     userObj.push(user);
     this.userObs.next(userObj);
-    // this.router.navigate(['/dashboard']);
+    this.router.navigate(['/dashboard']);
   }
+
   error() {
   }
   complete() {

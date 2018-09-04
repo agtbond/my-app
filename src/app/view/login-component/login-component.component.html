@@ -1,8 +1,8 @@
-<form [formGroup]="form" (ngSubmit)="validate()">
-  <input class="login" formControlName="login" (change)="setUser($event)"/>
-  <input type="password" class="password" formControlName="password" pattern="pass" (change)="setUser($event)"/>
+<form [formGroup]="form" (ngSubmit)="save()">
+  <input class="login" formControlName="login" />
+  <input type="password" class="password" formControlName="password" pattern="pass" />
   <div *ngIf="form.get('login').invalid">Wymagane</div>
   <div *ngIf="form.get('password').invalid">Nieprawidłowe hasło</div>
-  <button type="submit" (click)="save()">Submit</button>
+  <button type="submit">Submit</button>
 </form>
 
