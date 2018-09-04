@@ -6,6 +6,7 @@ import { LoginComponentComponent } from './view/login-component/login-component.
 import { DashboardComponentComponent } from './view/dashboard-component/dashboard-component.component';
 import { AppRoutingModule } from './app-routing.module';
 import { MenuComponent } from './view/menu/menu.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,9 @@ import { MenuComponent } from './view/menu/menu.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

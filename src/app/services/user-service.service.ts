@@ -1,43 +1,29 @@
 import { Injectable } from '@angular/core';
 import { Subject, BehaviorSubject } from '../../../node_modules/rxjs';
 import { User } from '../models/user';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  // user$: Subject<void> = new Subject<void>;
-
-  // setUser(user: string): void {
-  //   this.user$.next(user);
-  // }
-
-  // complete() {
-  //   this.user$.complete();
-  // }
-
    usersList: Array<User> = [];
-  // user$: Subject<void> = new Subject();
    userObs = new BehaviorSubject<Array<User>>([]);
+   // posiada metodę getValue; Subject nie ma
 
-
-  constructor() {
-    this.usersList = [
-      {login: 'Agata', password: 'password'}
-    ];
-  }
+   constructor(private router: Router) {
+   }
 
   setUser(user: User) {
-    // this.userObs.next(this.usersList);
-
-
     const userObj = this.userObs.getValue();
     userObj.push(user);
     this.userObs.next(userObj);
+    // this.router.navigate(['/dashboard']);
   }
-
+  error() {
+  }
   complete() {
     this.userObs.complete();
-  }
 
+  }
 }

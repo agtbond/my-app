@@ -10,15 +10,16 @@ import { User } from '../../models/user';
 export class DashboardComponentComponent implements OnInit {
 
   usersList: Array<User> = [];
+  loginView;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService) {
+  }
 
   ngOnInit() {
-
     this.userService.userObs.subscribe((usersList: Array<User>) => {
       this.usersList = usersList;
-
-      console.log(this.usersList);
+      this.loginView = this.usersList[0];
+      console.log(this.loginView);
     });
   }
 

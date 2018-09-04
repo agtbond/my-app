@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user-service.service';
 import { User } from '../../models/user';
-
+import { FormGroup, Validators, FormControl } from '../../../../node_modules/@angular/forms';
 @Component({
   selector: 'app-login-component',
   templateUrl: './login-component.component.html',
@@ -11,38 +11,30 @@ export class LoginComponentComponent implements OnInit {
 
   login: string;
   password: string;
+  form: FormGroup;
 
   constructor(
     private userService: UserService) { }
 
   ngOnInit() {
+    this.form = new FormGroup({
+      login: new FormControl(null, [Validators.required, Validators.minLength(3)]),
+      password: new FormControl(null)
+    });
   }
 
   setUser($event) {
-
-    // this.login = $event.target.value;
-    // console.log(this.login);
-
-    const targetClassName = $event.target.className;
-
-    if (targetClassName === 'login') {
-      this.login = $event.target.value;
-    }
-    if (targetClassName === 'password') {
-      this.password = $event.target.value;
-    }
+    // const targetClassName = $event.target.className;
+    // if (targetClassName === 'login') {
+    //   this.login = $event.target.value;
+    // }
+    // if (targetClassName === 'password') {
+    //   this.password = $event.target.value;
+    // }
   }
-
   save() {
-    // this.userService.setUser(this.login);
-
-    const user: User = ({ login: this.login, password: this.password });
+    const user: User = ({ login: this.form.value.login, password: this.form.value.password });
     this.userService.setUser(user);
+    console.log(user);
   }
-
-
-
-
-
-
 }
