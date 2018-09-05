@@ -14,36 +14,32 @@ export class LoginComponentComponent implements OnInit {
   form: FormGroup;
   user: User;
 
-
-
-
   constructor(private userService: UserService) { }
 
   ngOnInit() {
-
-    console.log(this.user);
-    // this.form = new FormGroup({
-    //   login: new FormControl(null, [Validators.required, Validators.minLength(3)]),
-    //   password: new FormControl(null)
-    // });
+    this.form = new FormGroup({
+      login: new FormControl(null, [Validators.required, Validators.minLength(3)]),
+      password: new FormControl(null)
+    });
   }
-  // save() {
-  //   const user: User = ({ login: this.form.value.login, password: this.form.value.password });
-  //  this.userService.setUser(user);
-  // }
+  save() {
+    this.userService.setUser(this.user = ({ login: this.form.value.login, password: this.form.value.password }));
+    // this.user = ({ login: this.form.value.login, password: this.form.value.password });
+    // this.userService.setUser(this.user);
+  }
 
   // Template driven form
 
-  onSubmit({value, valid}: {value: User, valid: boolean}) {
-    // this.validate();
-    console.log(this.user);
-  }
+  // onSubmit({value, valid}: {value: User, valid: boolean}) {
+  //   // this.validate();
+  //   console.log(this.user);
+  // }
 
-  validate() {
-    // let cloneUserObj = Object.assign({}, User, ob2);
-    if (this.password === 'pass') {
-      // console.log(this.password);
-    }
-  }
+  // validate() {
+  //   // let cloneUserObj = Object.assign({}, User, ob2);
+  //   if (this.password === 'pass') {
+  //     // console.log(this.password);
+  //   }
+  // }
 
 }

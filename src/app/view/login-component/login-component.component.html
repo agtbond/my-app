@@ -1,21 +1,21 @@
-<!-- <form [formGroup]="form" (ngSubmit)="save()">
-  <input class="login" formControlName="login" />
-  <input type="password" class="password" formControlName="password" pattern="pass" />
+<form [formGroup]="form" (ngSubmit)="save()">
+  <input class="login" formControlName="login" required />
+  <input type="password" class="password" formControlName="password" pattern="pass" required />
   <div *ngIf="form.get('login').invalid">Wymagane</div>
   <div *ngIf="form.get('password').invalid">Nieprawidłowe hasło</div>
-  <button type="submit">Submit</button>
-</form> -->
+  <button type="submit" [disabled]="!form.valid">Submit</button>
+</form>
 
 
-<form (ngSubmit)="onSubmit(loginForm)" #loginForm="ngForm">
+<!-- <form (ngSubmit)="onSubmit(loginForm)" #loginForm="ngForm"> -->
   <!-- #Lokalna referencja; public #loingForm variable
   Lok. ref. - pobieranie elemnetu bezposrednio z widoku -->
   <!-- #loginForm is the exported form Object -->
-
+<!--
   <input name="login" [(ngModel)]="login" required />
-  <input type="password" name="password" [(ngModel)]="password" required />
+  <input type="password" name="password" [(ngModel)]="password" required /> -->
   <!-- ngModel talks to the form and binds the form value based on name attr -->
-  <button type="submit" [disabled]="loginForm.invalid">Submit</button>
+  <!-- <button type="submit" [disabled]="loginForm.invalid">Submit</button> -->
 
 
-</form>
+<!-- </form> -->
