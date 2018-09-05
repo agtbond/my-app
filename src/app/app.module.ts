@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { MenuComponent } from './view/menu/menu.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditUsernameComponent } from './view/edit-username/edit-username.component';
+import { UserService } from './services/user-service.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { EditUsernameComponent } from './view/edit-username/edit-username.compon
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
