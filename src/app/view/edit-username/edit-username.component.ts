@@ -10,6 +10,8 @@ import { User } from '../../models/user';
 export class EditUsernameComponent implements OnInit {
 
   newLogin;
+
+  tablica: any[] =  [1, 2, 3, 4];
   constructor(private userService: UserService) { }
 
   ngOnInit() {

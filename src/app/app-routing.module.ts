@@ -7,7 +7,7 @@ import { LoginComponentComponent } from './view/login-component/login-component.
 
 const routes: Routes = [
   {path: '', component: LoginComponentComponent},
- {path: 'dashboard', component: DashboardComponentComponent}
+  {path: 'dashboard', component: DashboardComponentComponent}
 ];
 
 

@@ -1,4 +1,4 @@
 <app-edit-username></app-edit-username>
 <p>
-  Witaj {{loginView.login}}
+  Witaj {{(user$ | async)?.login}}
 </p>
