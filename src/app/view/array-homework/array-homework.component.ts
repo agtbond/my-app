@@ -37,15 +37,15 @@ export class ArrayHomeworkComponent implements OnInit {
                                   .reduce((pre, curr) => pre + curr);
 
 
-    console.log(moreThan21);
-    console.log(nameMarcin);
-    console.log(ifFirstIs9);
-    console.log(ifEveryMore18);
-    console.log(newStudent);
-    console.log(noIndexString);
-    console.log(sumWomenAge);
+    // console.log(moreThan21);
+    // console.log(nameMarcin);
+    // console.log(ifFirstIs9);
+    // console.log(ifEveryMore18);
+    // console.log(newStudent);
+    // console.log(noIndexString);
+    // console.log(sumWomenAge);
 
-    console.log('palindrom: ' + this.palindrom('kajak'));
+    // console.log('palindrom: ' + this.palindrom('kajak'));
 
   }
 

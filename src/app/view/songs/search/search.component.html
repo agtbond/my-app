@@ -1,0 +1,8 @@
+<form [formGroup]="formSong" (ngSubmit)="save()">
+  <h1>Wyszukiwarka tekstów</h1>
+  <label for="band">Wykonawca:</label>
+  <input name="band" formControlName="band" />
+  <label for="song">Piosenka:</label>
+  <input name="song" formControlName="song" />
+  <button [disabled]="!formSong.valid">Szukaj</button>
+</form>

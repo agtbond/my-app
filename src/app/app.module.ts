@@ -10,6 +10,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditUsernameComponent } from './view/edit-username/edit-username.component';
 import { UserService } from './services/user-service.service';
 import { ArrayHomeworkComponent } from './view/array-homework/array-homework.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ResultComponent } from './view/songs/result/result.component';
+import { SearchComponent } from './view/songs/search/search.component';
 
 @NgModule({
   declarations: [
@@ -18,13 +21,16 @@ import { ArrayHomeworkComponent } from './view/array-homework/array-homework.com
     DashboardComponentComponent,
     MenuComponent,
     EditUsernameComponent,
-    ArrayHomeworkComponent
+    ArrayHomeworkComponent,
+    ResultComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]
