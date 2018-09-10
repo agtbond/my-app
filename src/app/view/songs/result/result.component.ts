@@ -11,5 +11,6 @@ export class ResultComponent implements OnInit {
 
   ngOnInit() {
   }
+  // https://angular.io/guide/http
 
 }
