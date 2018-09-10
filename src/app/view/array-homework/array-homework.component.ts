@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Student } from '../../models/students';
+import { preserveWhitespacesDefault } from '../../../../node_modules/@angular/compiler';
 
 @Component({
   selector: 'app-array-homework',
@@ -16,6 +17,13 @@ export class ArrayHomeworkComponent implements OnInit {
 
   constructor() { }
 
+  palindrom(word) {
+    const wordStart = word.split('').join();
+    const wordRevers = word.split('').reverse().join();
+    const result = wordStart === wordRevers ? true : false;
+    return result;
+  }
+
   ngOnInit() {
     this.students = [...this.students, this.st1, this.st2, this.st3, this.st4];
     const moreThan21 = this.students.filter(el => el.age > 21);
@@ -24,7 +32,10 @@ export class ArrayHomeworkComponent implements OnInit {
     const ifEveryMore18 = this.students.every(el => el.age > 18);
     const newStudent = [...this.students, {name: 'Magda', age: 23, indexNo: 5678}];
     const noIndexString = newStudent.map(el => el.indexNo.toString());
-    const lastLetterName = newStudent.map(el => el.name.charAt(el.name.length - 1));
+    const sumWomenAge = newStudent.filter(el => el.name.charAt(el.name.length - 1) === 'a')
+                                  .map(el => el.age)
+                                  .reduce((pre, curr) => pre + curr);
+
 
     console.log(moreThan21);
     console.log(nameMarcin);
@@ -32,7 +43,10 @@ export class ArrayHomeworkComponent implements OnInit {
     console.log(ifEveryMore18);
     console.log(newStudent);
     console.log(noIndexString);
-    console.log(lastLetterName);
+    console.log(sumWomenAge);
+
+    console.log('palindrom: ' + this.palindrom('kajak'));
+
   }
 
 
