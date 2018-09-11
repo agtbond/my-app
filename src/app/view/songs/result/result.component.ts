@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { LyricsService } from '../../../services/lyrics.service';
+import { Songs } from '../../../models/songs';
 
 @Component({
   selector: 'app-result',
@@ -7,10 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResultComponent implements OnInit {
   lyrics: string[];
-  constructor() { }
+  constructor(private lyricsService: LyricsService) { }
 
   ngOnInit() {
+    this.lyricsService.fetchLyrics({
+      song: 'Bohemian rhapsody',
+      band: 'Queen'
+    }).subscribe((res: any) => {
+      const lyricsString: string = res.lyrics;
+      this.lyrics = lyricsString.split('\n');
+    });
   }
-  // https://angular.io/guide/http
+
+  // showSong() {
+  //   this.lyricsService.fetchLyrics()
+  //   .subscribe((res: Songs) => {
+  //       const lyricsString: string = res.lyrics;
+  //       this.lyrics = lyricsString.split('\n');
+  //     });
+  // }
+
+
 
 }
