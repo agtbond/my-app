@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {LyricsService} from './services/lyrics.service';
+import { Songs } from './models/songs';
 
 @Component({
   selector: 'app-root',
@@ -8,10 +9,16 @@ import {LyricsService} from './services/lyrics.service';
 })
 export class AppComponent implements OnInit {
   title = 'app';
+  lyrics: string[];
 
-  constructor() {
+  constructor(private lyricsService: LyricsService) {
   }
 
   ngOnInit() {
+
+  }
+  onSaved(event: Songs) {
+    this.lyricsService.fetchLyrics(event)
+        .subscribe(res => this.lyrics = res.lyrics);
   }
 }

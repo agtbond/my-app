@@ -18,17 +18,20 @@ export class ArrayHomeworkComponent implements OnInit {
    text = 'Your time is limited, so dont waste it living someelses life. Dont be trapped by dogma which is living with theresults of other peoples thinking. Dont let the noise of othersopinions drown out your own inner voice. And most important,have the courage to follow your heart and intuition.'
 
   palindrom(word) {
-    const wordStart = word.split('').join();
-    const wordRevers = word.split('').reverse().join();
-    const result = wordStart === wordRevers ? true : false;
-    return result;
+    // const wordStart = word.split('').join('');
+    const wordRevers = word.split('').reverse().join('');
+   // const result = word === wordRevers;
+    return word === wordRevers;
+
   }
+
 
   ngOnInit() {
     this.students = [...this.students, this.st1, this.st2, this.st3, this.st4];
     const moreThan21 = this.students.filter(el => el.age > 21);
-    const nameMarcin = this.students.filter(el => el.name.includes('Marcin'));
+    const nameMarcin = this.students.find(el => el.name === 'Marcin');
     const ifFirstIs9 = this.students.map(el => el.indexNo.toString().charAt(0)).some(el => el === '9');
+    // "Marcin".split("")[0]
     const ifEveryMore18 = this.students.every(el => el.age > 18);
     const newStudent = [...this.students, {name: 'Magda', age: 23, indexNo: 5678}];
     const noIndexString = newStudent.map(el => el.indexNo.toString());
@@ -37,6 +40,7 @@ export class ArrayHomeworkComponent implements OnInit {
                                   .reduce((pre, curr) => pre + curr);
 
     const aeo = this.text.split('').filter(el => el.includes('a') || el.includes('e') || el.includes('o')).length;
+    // const aeo = this.text.split('').filter(letter => ['a', 'e', 'o'].includes(letter)).length;
 
 
     console.log(moreThan21);

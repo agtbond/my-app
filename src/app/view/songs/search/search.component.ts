@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { LyricsService } from '../../../services/lyrics.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Songs } from '../../../models/songs';
@@ -13,6 +13,8 @@ export class SearchComponent implements OnInit {
   formSong: FormGroup;
 
   // lyrics: string[];
+
+  @Output() saved = new EventEmitter<Songs>();
 
   constructor(private lyricsService: LyricsService) {
   }
@@ -37,7 +39,9 @@ export class SearchComponent implements OnInit {
   save() {
     const {band, song} = this.formSong.value;
     const songChoosen: Songs = { band, song };
-    this.lyricsService.fetchLyrics(songChoosen);
+    // this.lyricsService.fetchLyrics(songChoosen);
+    this.saved.emit(songChoosen);
+
   }
 
 }
