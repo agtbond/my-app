@@ -20,14 +20,14 @@ export class LyricsService {
   constructor(private http: HttpClient) {
   }
 
-  fetchLyrics(dto: FetchLyricsDto) {
-    return this.http.get(`https://api.lyrics.ovh/v1/${dto.band}/${dto.song}`);
+  fetchLyrics(songChoosen: Songs) {
+    return this.http.get(`https://api.lyrics.ovh/v1/${songChoosen.band}/${songChoosen.song}`);
   }
 }
 
 
-interface FetchLyricsDto {
-  band: string;
-  song: string;
-}
+// interface FetchLyricsDto {
+//   band: string;
+//   song: string;
+// }
 

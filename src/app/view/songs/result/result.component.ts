@@ -12,13 +12,11 @@ export class ResultComponent implements OnInit {
   constructor(private lyricsService: LyricsService) { }
 
   ngOnInit() {
-    this.lyricsService.fetchLyrics({
-      song: 'Bohemian rhapsody',
-      band: 'Queen'
-    }).subscribe((res: any) => {
-      const lyricsString: string = res.lyrics;
-      this.lyrics = lyricsString.split('\n');
-    });
+    // this.lyricsService.fetchLyrics()
+    // .subscribe((res: Songs) => {
+    //   const lyricsString: string = res.lyrics;
+    //   this.lyrics = lyricsString.split('\n');
+    // });
   }
 
   // showSong() {
