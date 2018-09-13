@@ -13,6 +13,7 @@ import { ArrayHomeworkComponent } from './view/array-homework/array-homework.com
 import { HttpClientModule } from '@angular/common/http';
 import { ResultComponent } from './view/songs/result/result.component';
 import { SearchComponent } from './view/songs/search/search.component';
+import { UppercasePipe } from './shared/uppercase.pipe';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { SearchComponent } from './view/songs/search/search.component';
     EditUsernameComponent,
     ArrayHomeworkComponent,
     ResultComponent,
-    SearchComponent
+    SearchComponent,
+    UppercasePipe
   ],
   imports: [
     BrowserModule,
