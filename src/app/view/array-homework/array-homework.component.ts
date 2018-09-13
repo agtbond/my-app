@@ -15,16 +15,20 @@ export class ArrayHomeworkComponent implements OnInit {
 
    students: Array<Student> = [];
 
-   text = 'Your time is limited, so dont waste it living someelses life. Dont be trapped by dogma which is living with theresults of other peoples thinking. Dont let the noise of othersopinions drown out your own inner voice. And most important,have the courage to follow your heart and intuition.'
+   num: Array<string> = ['2', '3', '5', '9'];
+   numToWord: Array<string> = ['dwa', 'trzy', 'pięc', 'dziewiec'];
+
+   numToSort: Array<number> = [5, 2, 9, 7, 22, 13];
+   wordToSort: Array<string> = ['button', 'article', 'section', 'main', 'nav'];
+
+   text = 'Your time is limited, so dont waste it living someelses life. Dont be trapped by dogma which is living with theresults of other peoples thinking. Dont let the noise of othersopinions drown out your own inner voice. And most important,have the courage to follow your heart and intuition.';
 
   palindrom(word) {
     // const wordStart = word.split('').join('');
     const wordRevers = word.split('').reverse().join('');
    // const result = word === wordRevers;
     return word === wordRevers;
-
   }
-
 
   ngOnInit() {
     this.students = [...this.students, this.st1, this.st2, this.st3, this.st4];
@@ -39,23 +43,18 @@ export class ArrayHomeworkComponent implements OnInit {
                                   .map(el => el.age)
                                   .reduce((pre, curr) => pre + curr);
 
-    const aeo = this.text.split('').filter(el => el.includes('a') || el.includes('e') || el.includes('o')).length;
-    // const aeo = this.text.split('').filter(letter => ['a', 'e', 'o'].includes(letter)).length;
+    const numToStringResult = this.num.map((el, index) => this.num[index] = this.numToWord[index]);
 
 
-    console.log(moreThan21);
-    console.log(nameMarcin);
-    console.log(ifFirstIs9);
-    console.log(ifEveryMore18);
-    console.log(newStudent);
-    console.log(noIndexString);
-    console.log(sumWomenAge);
+    // const aeo = this.text.split('').filter(el => el.includes('a') || el.includes('e') || el.includes('o')).length;
+    const aeo = this.text.split('').filter(letter => ['a', 'e', 'o'].includes(letter)).length;
 
-    console.log('palindrom: ' + this.palindrom('kajak'));
-
-    console.log('AEO: ' + aeo);
-
+    // SORT
+    function sortNum(numA, numB) {
+        return numA - numB;
+    }
+    console.log(this.numToSort.sort(sortNum));
+    console.log(this.wordToSort.sort());
   }
-
 
 }

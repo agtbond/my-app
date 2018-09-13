@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 import {LyricsService} from './services/lyrics.service';
 import { Songs } from './models/songs';
 
@@ -9,7 +9,7 @@ import { Songs } from './models/songs';
 })
 export class AppComponent implements OnInit {
   title = 'app';
-  lyrics: string[];
+  @Input() llyrics: string[];
 
   constructor(private lyricsService: LyricsService) {
   }
@@ -19,6 +19,14 @@ export class AppComponent implements OnInit {
   }
   onSaved(event: Songs) {
     this.lyricsService.fetchLyrics(event)
-        .subscribe(res => this.lyrics = res.lyrics);
+        // .subscribe(res => this.lyrics = res.lyrics);
+        // powyższa linijka wyrzucała błąd,
+        // dlatego, że próbuje przypisac do siebie dwa różne typy danych?
+
+        .subscribe((res: any) => {
+            const lyricsString: string = res.lyrics;
+            this.llyrics = lyricsString.split('\n');
+           // console.log(this.lyrics);
+        });
   }
 }

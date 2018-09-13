@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { LyricsService } from '../../../services/lyrics.service';
 import { Songs } from '../../../models/songs';
 
@@ -8,25 +8,9 @@ import { Songs } from '../../../models/songs';
   styleUrls: ['./result.component.css']
 })
 export class ResultComponent implements OnInit {
-  lyrics: string[];
+  @Input() lyricss: string[];
   constructor(private lyricsService: LyricsService) { }
 
   ngOnInit() {
-    // this.lyricsService.fetchLyrics()
-    // .subscribe((res: Songs) => {
-    //   const lyricsString: string = res.lyrics;
-    //   this.lyrics = lyricsString.split('\n');
-    // });
   }
-
-  // showSong() {
-  //   this.lyricsService.fetchLyrics()
-  //   .subscribe((res: Songs) => {
-  //       const lyricsString: string = res.lyrics;
-  //       this.lyrics = lyricsString.split('\n');
-  //     });
-  // }
-
-
-
 }

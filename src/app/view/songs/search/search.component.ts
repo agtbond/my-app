@@ -11,9 +11,6 @@ import { Songs } from '../../../models/songs';
 export class SearchComponent implements OnInit {
 
   formSong: FormGroup;
-
-  // lyrics: string[];
-
   @Output() saved = new EventEmitter<Songs>();
 
   constructor(private lyricsService: LyricsService) {
@@ -24,24 +21,12 @@ export class SearchComponent implements OnInit {
       band: new FormControl(null, Validators.required),
       song: new FormControl(null, Validators.required)
     });
-
-
-
-    // this.lyricsService.fetchLyrics({
-    //   song: 'Bohemian rhapsody',
-    //   band: 'Queen'
-    // }).subscribe((res: any) => {
-    //   const lyricsString: string = res.lyrics;
-    //   this.lyrics = lyricsString.split('\n');
-    // });
   }
 
   save() {
     const {band, song} = this.formSong.value;
     const songChoosen: Songs = { band, song };
-    // this.lyricsService.fetchLyrics(songChoosen);
     this.saved.emit(songChoosen);
-
   }
 
 }

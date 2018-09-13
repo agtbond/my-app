@@ -6,15 +6,6 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-// export class LyricsService {
-
-//   constructor(private http: HttpClient) {
-//   }
-
-//   fetchLyrics(songChoosen: Songs) {
-//     return this.http.get(`https://api.lyrics.ovh/v1/${songChoosen.band}/${songChoosen.song}`);
-//   }
-// }
 
 export class LyricsService {
 
@@ -25,10 +16,3 @@ export class LyricsService {
     return this.http.get(`https://api.lyrics.ovh/v1/${songChoosen.band}/${songChoosen.song}`) as any;
   }
 }
-
-
-// interface FetchLyricsDto {
-//   band: string;
-//   song: string;
-// }
-
