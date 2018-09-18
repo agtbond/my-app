@@ -11,10 +11,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponentComponent implements OnInit {
 
-  // login: string;
-  // password: string;
   form: FormGroup;
-  // user: User;
 
   constructor(private userService: UserService, private router: Router ) { }
 
@@ -22,7 +19,6 @@ export class LoginComponentComponent implements OnInit {
     this.form = new FormGroup({
       login: new FormControl(null, [Validators.required, Validators.minLength(3)]),
       password: new FormControl(null)
-      // null wartosc domyslna
     });
   }
   save() {

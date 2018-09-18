@@ -1,0 +1,9 @@
+<form [formGroup]="form" (ngSubmit)="saveWeight()">
+  <label name="weight">Dodaj</label><br>
+  <input formControlName="weight" />
+  <button [disabled]="!form.valid">Zapisz</button>
+</form>
+
+<div>
+  <button (click)="clearLocalStorage()">Clear Local Storage</button>
+</div>

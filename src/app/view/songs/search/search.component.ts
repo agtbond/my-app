@@ -27,6 +27,7 @@ export class SearchComponent implements OnInit {
     const {band, song} = this.formSong.value;
     const songChoosen: Songs = { band, song };
     this.saved.emit(songChoosen);
+    console.log('Song saved' + this.saved);
   }
 
 }
