@@ -10,9 +10,9 @@ import { HealthService } from '../../../services/health.service';
 })
 export class AddDataComponent implements OnInit {
   form: FormGroup;
-  // @Input() localSet;
-  @Input() weight: number;
+
   @Output() saved = new EventEmitter<number>();
+  weight: number;
 
   constructor(private healthService: HealthService) { }
 

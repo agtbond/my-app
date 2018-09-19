@@ -6,8 +6,9 @@ import { Component, OnInit, Inject, Input } from '@angular/core';
   styleUrls: ['./health.component.css']
 })
 export class HealthComponent implements OnInit {
-  @Input() weight: number;
-
+ // @Input() weight: number;
+  test = 'Wiadomo';
+  weight;
 
   constructor() {
   }
@@ -15,10 +16,11 @@ export class HealthComponent implements OnInit {
 
 
   ngOnInit() {
-    console.log('Parent: ' + this.weight);
+   // console.log('Parent: ' + this.weight);
   }
-  onSaved(weight) {
-    console.log('Event' + event);
+  saved(weight) {
+    this.weight = weight;
+    console.log('Event ' + this.weight);
   }
 
 }

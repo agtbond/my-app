@@ -1,7 +1,7 @@
 import {Component, OnInit, Input, Inject} from '@angular/core';
 import {LyricsService} from './services/lyrics.service';
 import { Songs } from './models/songs';
-import {LOCAL_STORAGE, WebStorageService} from 'angular-webstorage-service';
+// import {LOCAL_STORAGE, WebStorageService} from 'angular-webstorage-service';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
   public data: any = [];
   @Input() llyrics: string[];
 
-  constructor(@Inject(LOCAL_STORAGE) private storage: WebStorageService, private lyricsService: LyricsService) {
+  constructor(private lyricsService: LyricsService) {
   }
 
 
@@ -23,14 +23,14 @@ export class AppComponent implements OnInit {
 
   saveInLocal(key, val): void {
     console.log('recieved= key:' + key + 'value:' + val);
-    this.storage.set(key, val);
-    this.data[key] = this.storage.get(key);
+    // this.storage.set(key, val);
+    // this.data[key] = this.storage.get(key);
    }
 
 
    getFromLocal(key): void {
     console.log('recieved= key:' + key);
-    this.data[key] = this.storage.get(key);
+    // this.data[key] = this.storage.get(key);
     console.log(this.data);
    }
 

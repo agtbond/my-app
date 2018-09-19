@@ -15,7 +15,7 @@ import { ResultComponent } from './view/songs/result/result.component';
 import { SearchComponent } from './view/songs/search/search.component';
 import { UppercasePipe } from './shared/uppercase.pipe';
 import { HealthComponent } from './view/health/health.component';
-import { StorageServiceModule} from 'angular-webstorage-service';
+// import { StorageServiceModule} from 'angular-webstorage-service';
 import { AddDataComponent } from './view/health/add-data/add-data.component';
 import { ShowGraphComponent } from './view/health/show-graph/show-graph.component';
 import { HealthService } from './services/health.service';
@@ -41,8 +41,8 @@ import { LyricsService } from './services/lyrics.service';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule,
-    StorageServiceModule
+    HttpClientModule
+    // StorageServiceModule
   ],
   providers: [UserService, LyricsService, HealthService],
   bootstrap: [AppComponent]

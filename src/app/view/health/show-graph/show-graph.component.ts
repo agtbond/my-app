@@ -7,17 +7,14 @@ import { HealthService } from '../../../services/health.service';
   styleUrls: ['./show-graph.component.css']
 })
 export class ShowGraphComponent implements OnInit {
-  @Input() localSet;
-  @Input() weight: number;
-  // weight$;
+  @Input()
+  toSend;
 
-  constructor(private healthService: HealthService) {
-    // this.weight$ = healthService.weight$;
+  constructor() {
+
   }
 
   ngOnInit() {
-    // console.log(this.weight$);
-
 
   }
 
